@@ -158,8 +158,6 @@ class: text-center
 />
 ```
 
----
-
 ## 封面幻灯片
 
 默认主题：
@@ -227,6 +225,14 @@ defaults:
 ```
 
 ---
+
+## 样式归属
+
+- `slides.md` 只写内容结构和组件调用，不写 `<style>`。
+- 会复用且包含结构的视觉模式必须抽成 `components/core/` 或 `components/themes/` 组件。
+- 纯 CSS 的主题样式放入 `styles/themes/`，例如 `styles/themes/animal-island.css`。
+- `weekly/_current/` 只保留当前内容，不放样式系统文件。
+- 新增组件后同步更新 `design_system/components.md`、`design_system/ai-guide.md` 和示例。
 
 ## 样式类快速参考
 

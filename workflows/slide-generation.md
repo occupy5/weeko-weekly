@@ -14,6 +14,7 @@
 5. **仅用输入信息**: 使用 source.md 中记载的信息，不添加抽象表达、夸大表达、推测信息
 6. **全局默认优先**: 主题 class、transition 等重复配置放到顶部一次，不在每页重复写
 7. **视频友好**: 使用 `<v-click>` / `<v-clicks>` 时，后续视频流程会导出每个 click state；不要依赖只能实时播放的复杂动画表达关键信息
+8. **样式分层**: 不得在 `slides.md` 中生成 `<style>`；页面只写内容结构和组件调用。通用视觉模式进入 `components/` 或 `styles/themes/`，不要把样式绑定到 `weekly/_current/`。
 
 ## 工作流程
 
@@ -78,6 +79,13 @@ defaults:
 ```
 
 后续页面只写真正不同的配置，例如 `layout: center`。不在每张幻灯片重复写 `class: animal-crossing`。
+
+#### 样式归属
+
+- `slides.md` 不写 `<style>`，也不承载可复用视觉系统。
+- 可交互或包含明确结构的模式抽成 `components/core/` 或 `components/themes/` 组件。
+- 纯 CSS 的主题样式写入 `styles/themes/`，例如 `styles/themes/animal-island.css`。
+- `weekly/_current/` 只放当前内容文件，不放样式系统文件。
 
 #### 封面幻灯片
 
