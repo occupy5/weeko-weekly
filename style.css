@@ -1,0 +1,1989 @@
+@import './weekly/_current/deck.css';
+
+/* ===================================
+   Theme: Default (Warm Brown)
+   =================================== */
+:root {
+	--color-primary: oklch(0.55 0.08 55);
+	--color-primary-light: oklch(0.65 0.06 60);
+	--color-secondary: oklch(0.48 0.08 50);
+	--color-accent: oklch(0.62 0.1 45);
+
+	--color-text: oklch(0.25 0.03 50);
+	--color-text-muted: oklch(0.45 0.04 55);
+
+	--color-bg: oklch(0.95 0.02 70);
+	--color-bg-soft: oklch(0.92 0.03 65);
+	--color-bg-warm: oklch(0.88 0.04 60);
+
+	--color-code-bg: oklch(0.35 0.05 50);
+	--color-code-text: oklch(0.75 0.06 45);
+
+	--color-focus: oklch(0.55 0.08 55);
+	--color-hover: oklch(0.48 0.08 50);
+
+	--gradient-bg-top: oklch(0.65 0.08 55 / 0.2);
+	--gradient-bg-fade: oklch(0.65 0.08 55 / 0.08);
+	--table-header-start: oklch(0.52 0.08 50);
+	--table-header-end: oklch(0.56 0.07 55);
+	--table-header-border: oklch(0.42 0.06 45);
+	--table-row-even: oklch(0.92 0.02 65);
+	--table-border: oklch(0.85 0.03 60 / 0.5);
+	--shiki-bg: oklch(0.12 0.03 50);
+	--shiki-border: oklch(0.25 0.04 50 / 0.3);
+	--shadow-color: oklch(0.3 0.04 50 / 0.2);
+	--shadow-table: oklch(0.3 0.04 50 / 0.15);
+	--featured-card-end: oklch(0.53 0.07 55);
+	--featured-card-shadow: oklch(0.35 0.06 45 / 0.3);
+	--focus-ring: oklch(0.55 0.08 55 / 0.25);
+
+	--diff-remove-bg-start: oklch(0.55 0.15 25 / 0.12);
+	--diff-remove-bg-end: oklch(0.55 0.15 25 / 0.04);
+	--diff-remove-border: oklch(0.55 0.15 25);
+	--diff-add-bg-start: oklch(0.55 0.12 140 / 0.12);
+	--diff-add-bg-end: oklch(0.55 0.12 140 / 0.04);
+	--diff-add-border: oklch(0.55 0.12 140);
+
+	--shiki-shadow: oklch(0.1 0.02 50 / 0.35);
+	--shiki-line-number: oklch(0.5 0.04 55);
+
+	--failure-bg: oklch(0.97 0.01 70);
+	--failure-border: oklch(0.88 0.02 65);
+	--failure-content-text: oklch(0.42 0.03 50);
+	--failure-highlight: oklch(0.55 0.12 25);
+	--failure-chat-bg: oklch(0.99 0.01 70);
+	--failure-chat-border: oklch(0.7 0.06 25);
+
+	--structure-bg: oklch(0.97 0.02 70);
+	--structure-border: oklch(0.88 0.02 70);
+	--structure-scrollbar-thumb: oklch(0.65 0.05 55);
+	--structure-file-text: oklch(0.3 0.05 55);
+}
+
+/* ===================================
+   Font Settings - Optimized for Chinese
+   =================================== */
+:root {
+	/* Font CSS Variables — used by components and utility classes */
+	--font-heading:
+		-apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC",
+		"Source Han Sans SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+	--font-body:
+		-apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC",
+		"Source Han Sans SC", "Microsoft YaHei", "Segoe UI", "Roboto", "Helvetica Neue", Arial,
+		sans-serif;
+	--font-mono: "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", monospace;
+	--font-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+
+	/* Keep original English font order, optimize Chinese fallback */
+	font-family:
+		-apple-system, BlinkMacSystemFont,
+		"PingFang SC", "Hiragino Sans GB",
+		"Microsoft YaHei", "Microsoft YaHei UI",
+		"Noto Sans SC", "Source Han Sans SC",
+		"WenQuanYi Micro Hei", "WenQuanYi Zen Hei",
+		"Segoe UI", "Roboto", "Helvetica Neue", Arial,
+		"Noto Sans JP", "Noto Sans KR",
+		sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+	font-feature-settings: "liga", "calt", "kern";
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-locale: "zh-CN";
+	font-language-override: "ZH";
+}
+
+/* ===================================
+   Background for All Slides
+   =================================== */
+#slideshow,
+.slidev-page {
+	background:
+		radial-gradient(
+			ellipse 120% 35% at 50% 0%,
+			var(--gradient-bg-top) 0%,
+			var(--gradient-bg-fade) 35%,
+			transparent 60%
+		),
+		linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-soft) 100%);
+}
+
+/* ===================================
+   Layout Settings
+   =================================== */
+.slidev-layout {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 7% 3%;
+}
+
+/* ===================================
+   Headings - Optimized for Chinese
+   =================================== */
+h1 {
+	font-size: clamp(1.8rem, 4vw, 2.8rem);
+	font-weight: 700;
+	line-height: 1.25;
+	margin-bottom: 1rem;
+	color: var(--color-text);
+}
+
+h2 {
+	font-size: clamp(1.4rem, 3.2vw, 2rem);
+	font-weight: 700;
+	line-height: 1.3;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	color: var(--color-text);
+}
+
+h3 {
+	font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+	font-weight: 600;
+	line-height: 1.35;
+	margin-top: 1.5rem;
+	margin-bottom: 0.75rem;
+	color: var(--color-text);
+}
+
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+h4 {
+	font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+	line-height: 1.4;
+}
+
+h5 {
+	font-size: clamp(1rem, 1.8vw, 1.2rem);
+	line-height: 1.4;
+}
+
+h6 {
+	font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+	line-height: 1.5;
+}
+
+/* ===================================
+   Gradient Heading
+   =================================== */
+.gradient-heading {
+	color: var(--color-primary);
+}
+
+/* ===================================
+   Curved Underline
+   =================================== */
+.curved-underline {
+	position: relative;
+	display: inline-block;
+}
+
+.curved-underline::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -0.2em;
+	width: 100%;
+	height: 0.15em;
+	background: var(--color-primary);
+	border-radius: 50%;
+	transform: scaleY(0.3);
+}
+
+/* ===================================
+   Text Styles - Chinese friendly line-height
+   =================================== */
+p {
+	color: var(--color-text);
+	line-height: 1.8;
+	margin-bottom: 1rem;
+	font-size: clamp(1rem, 1.8vw, 1.15rem);
+}
+
+.slidev-layout h1 + p {
+	opacity: 1;
+}
+
+/* ===================================
+   List Styles
+   =================================== */
+li {
+	color: var(--color-text);
+	line-height: 1.8;
+	margin-bottom: 0.5rem;
+	font-size: clamp(1rem, 1.8vw, 1.15rem);
+}
+
+ul,
+ol {
+	padding-left: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+/* ===================================
+   Blockquote
+   =================================== */
+blockquote {
+	font-style: italic;
+	border-left: 4px solid var(--color-primary);
+	padding: 1rem 1.5rem;
+	margin: 1.5em 0;
+	color: var(--color-text-muted);
+	background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+	border-radius: 8px;
+}
+
+/* ===================================
+   Inline Code
+   =================================== */
+code {
+	font-family: "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", monospace;
+	font-size: 0.9em;
+	padding: 0.2em 0.4em;
+	border-radius: 4px;
+	background: var(--color-code-bg);
+	color: var(--color-code-text);
+}
+
+pre code {
+	padding: 0;
+	background: transparent;
+	color: inherit;
+}
+
+/* ===================================
+   Shiki Code Block
+   =================================== */
+.shiki {
+	background: var(--shiki-bg);
+	padding: 1.5rem;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px -2px var(--shiki-shadow);
+	border: 1px solid var(--shiki-border);
+}
+
+.diff-block {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.diff-block pre:first-of-type .shiki {
+	background: linear-gradient(to right, var(--diff-remove-bg-start), var(--diff-remove-bg-end));
+	border-left: 3px solid var(--diff-remove-border);
+}
+
+.diff-block pre:last-of-type .shiki {
+	background: linear-gradient(to right, var(--diff-add-bg-start), var(--diff-add-bg-end));
+	border-left: 3px solid var(--diff-add-border);
+}
+
+/* Reset Shiki Inline Backgrounds */
+pre.shiki *,
+.slidev-code *,
+pre[class*="shiki"] *,
+pre code span,
+pre code .line,
+pre code .line span {
+	background: transparent;
+}
+
+.shiki .line-number {
+	color: var(--shiki-line-number);
+	opacity: 0.6;
+}
+
+/* ===================================
+   v-click Enhanced Animations
+   =================================== */
+.slidev-vclick-target {
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slidev-vclick-before {
+	opacity: 0;
+	transform: translateY(12px);
+}
+
+.slidev-vclick-after {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* ===================================
+   Image Styles
+   =================================== */
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px -1px var(--shadow-color);
+}
+
+/* ===================================
+   View Transition Support
+   =================================== */
+@supports (view-transition-name: none) {
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation-duration: 0.5s;
+	}
+}
+
+/* ===================================
+   Emoji
+   =================================== */
+.emoji {
+	font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+	font-size: 1.2em;
+	vertical-align: middle;
+}
+
+/* ===================================
+   Animated Shadow
+   =================================== */
+.animated-shadow {
+	animation: text-shadow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes text-shadow-pulse {
+	0%,
+	100% {
+		text-shadow: 0 0 12px color-mix(in srgb, var(--color-primary) 25%, transparent);
+	}
+	50% {
+		text-shadow: 0 0 24px color-mix(in srgb, var(--color-primary) 40%, transparent);
+	}
+}
+
+/* ===================================
+   Slide Border-radius
+   =================================== */
+.slidev-page {
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+/* ===================================
+   Table Styles
+   =================================== */
+table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 1rem 0;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 2px 8px -1px var(--shadow-table);
+}
+
+thead {
+	background: linear-gradient(135deg, var(--table-header-start) 0%, var(--table-header-end) 100%);
+}
+
+thead th {
+	font-weight: 700;
+	color: var(--color-bg);
+	padding: 0.75rem 1rem;
+	text-align: left;
+	border-bottom: 2px solid var(--table-header-border);
+}
+
+th:first-child {
+	border-top-left-radius: 12px;
+}
+
+th:last-child {
+	border-top-right-radius: 12px;
+}
+
+tbody tr {
+	transition: background-color 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+	background: var(--table-row-even);
+}
+
+tbody tr:hover {
+	background: color-mix(in oklch, var(--color-primary) 10%, var(--color-bg));
+}
+
+tbody td {
+	padding: 0.65rem 1rem;
+	border-bottom: 1px solid var(--table-border);
+	color: var(--color-text);
+}
+
+tbody tr:last-child td {
+	border-bottom: none;
+}
+
+tbody tr:last-child td:first-child {
+	border-bottom-left-radius: 12px;
+}
+
+tbody tr:last-child td:last-child {
+	border-bottom-right-radius: 12px;
+}
+
+/* ===================================
+   Link Styles
+   =================================== */
+a {
+	color: var(--color-primary);
+	text-decoration: none;
+	transition:
+		color 0.25s ease,
+		text-decoration 0.25s ease;
+	font-weight: 600;
+}
+
+a:hover {
+	color: var(--color-secondary);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+a:visited {
+	color: var(--color-secondary);
+}
+
+/* ===================================
+   Column Layout Utilities
+   =================================== */
+.columns_h {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+	gap: 1.5rem;
+}
+
+.columns_v {
+	display: grid;
+	grid-auto-flow: row;
+	gap: 1rem;
+}
+
+/* ===================================
+   Two-column Layout Styles
+   =================================== */
+.slidev-layout.two-columns {
+	gap: 2.5rem;
+	padding: 3.5rem 3rem;
+}
+
+.slidev-layout.two-columns .col-left,
+.slidev-layout.two-columns .col-right {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding-top: 0.5rem;
+}
+
+.slidev-layout.two-columns .col-left {
+	padding-right: 1rem;
+}
+
+.slidev-layout.two-columns .col-right {
+	padding-left: 1rem;
+}
+
+.slidev-layout.two-columns h1,
+.slidev-layout.two-columns h2,
+.slidev-layout.two-columns h3 {
+	margin-top: 0;
+}
+
+.slidev-layout.two-columns table {
+	font-size: 0.95em;
+}
+
+.slidev-layout.two-columns pre {
+	margin: 0.5rem 0;
+}
+
+/* ===================================
+   Alignment Utilities
+   =================================== */
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.right {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	text-align: right;
+}
+
+.left {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: left;
+}
+
+/* ===================================
+   Text Shine Effect
+   =================================== */
+.text-shine {
+	background: linear-gradient(
+		90deg,
+		var(--color-secondary) 0%,
+		var(--color-primary-light) 50%,
+		var(--color-secondary) 100%
+	);
+	background-size: 200% auto;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: text-shine 3s ease-out infinite;
+}
+
+@keyframes text-shine {
+	to {
+		background-position: 200% center;
+	}
+}
+
+/* ===================================
+   Highlight Callout
+   =================================== */
+.highlight-box {
+	background: linear-gradient(
+		135deg,
+		color-mix(in oklch, var(--color-primary) 15%, var(--color-bg)) 0%,
+		color-mix(in oklch, var(--color-accent) 10%, var(--color-bg-soft)) 100%
+	);
+	padding: 1rem 1.5rem;
+	border-radius: 12px;
+	border-left: 4px solid var(--color-primary);
+	margin: 1rem 0;
+}
+
+/* ===================================
+   Featured Card
+   =================================== */
+.featured-card {
+	background: linear-gradient(135deg, var(--color-secondary) 0%, var(--featured-card-end) 100%);
+	color: var(--color-bg);
+	padding: 1.5rem 2rem;
+	border-radius: 16px;
+	box-shadow: 0 6px 16px -2px var(--featured-card-shadow);
+}
+
+.featured-card a {
+	color: var(--color-bg-soft);
+}
+
+.featured-card a:hover {
+	color: var(--color-bg);
+}
+
+/* ===================================
+   Accessibility: Focus & Motion
+   =================================== */
+*:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 3px;
+	transition: outline-color 0.2s ease;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 3px;
+	box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+.touch-target {
+	min-width: 44px;
+	min-height: 44px;
+	padding: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms;
+		animation-iteration-count: 1;
+		transition-duration: 0.01ms;
+	}
+
+	.gradient-heading,
+	.animated-shadow,
+	.text-shine {
+		animation: none;
+	}
+
+	.slidev-vclick-target {
+		transition: opacity 0.01ms;
+		transform: none;
+	}
+}
+
+/* ===================================
+   Tech List (structure component)
+   =================================== */
+.tech-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.tech-list h3 {
+	font-family: var(--font-heading);
+	font-weight: 600;
+	font-size: clamp(1rem, 1.6vw, 1.1rem);
+	color: var(--color-primary);
+	margin-bottom: 0.25rem;
+}
+
+.tech-list ul,
+.tech-list li {
+	font-family: var(--font-body);
+	font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+	line-height: 1.6;
+}
+
+.tech-list li {
+	padding-left: 0.5rem;
+}
+
+/* ===================================
+   Structure Component Styles
+   =================================== */
+.section-divider {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 0.5rem;
+}
+
+.section-divider-title {
+	font-size: clamp(2rem, 4.5vw, 3rem);
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+.section-divider-subtitle {
+	font-size: clamp(1rem, 1.8vw, 1.15rem);
+	font-weight: 400;
+	line-height: 1.8;
+	color: var(--color-text-muted);
+}
+
+.callout-card {
+	background: linear-gradient(
+		135deg,
+		color-mix(in oklch, var(--color-primary) 15%, var(--color-bg)) 0%,
+		color-mix(in oklch, var(--color-accent) 10%, var(--color-bg-soft)) 100%
+	);
+	padding: 1rem 1.5rem;
+	border-radius: 12px;
+	border-left: 4px solid var(--color-primary);
+	margin: 1.5rem 0;
+}
+
+.callout-card h3 {
+	font-family: var(--font-heading);
+	font-weight: 600;
+	color: var(--color-primary);
+	margin-bottom: 0.5rem;
+}
+
+.callout-card p {
+	font-family: var(--font-body);
+	line-height: 1.6;
+}
+
+.comparison-highlight {
+	font-weight: 600;
+	color: var(--color-accent);
+}
+
+.closing-slide {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 1rem;
+}
+
+.closing-title {
+	font-size: clamp(2rem, 4vw, 2.8rem);
+	font-weight: 700;
+}
+
+.closing-subtitle {
+	font-size: clamp(1rem, 1.6vw, 1.1rem);
+	color: var(--color-text-muted);
+}
+
+.closing-link {
+	font-size: clamp(0.9rem, 1.4vw, 1rem);
+	color: var(--color-primary);
+	font-weight: 600;
+	margin-top: 1rem;
+}
+
+/* ===================================
+   Card Styles
+   =================================== */
+.card {
+	background: var(--color-bg-soft);
+	border: 1px solid color-mix(in oklch, var(--color-primary) 15%, transparent);
+	border-radius: 12px;
+	padding: 1.5rem;
+	box-shadow: 0 2px 8px -1px var(--shadow-color);
+}
+
+/* ===================================
+   Button Styles
+   =================================== */
+.btn-primary {
+	background: var(--color-primary);
+	color: var(--color-bg);
+	padding: 8px 16px;
+	border-radius: 8px;
+	font-weight: 600;
+	transition:
+		background 0.2s ease,
+		transform 0.2s ease;
+}
+
+.btn-primary:hover {
+	background: var(--color-secondary);
+	transform: translateY(-1px);
+}
+
+.btn-secondary {
+	background: var(--color-bg-warm);
+	color: var(--color-text);
+	padding: 8px 16px;
+	border-radius: 8px;
+	font-weight: 500;
+	border: 1px solid color-mix(in oklch, var(--color-primary) 20%, transparent);
+	transition:
+		background 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+	background: color-mix(in oklch, var(--color-primary) 10%, var(--color-bg-warm));
+	border-color: var(--color-primary);
+}
+
+/* ===================================
+   Theme: Animal Crossing (Island)
+   =================================== */
+.animal-crossing {
+	--color-primary: oklch(0.56 0.1 175);
+	--color-primary-light: oklch(0.63 0.08 180);
+	--color-secondary: oklch(0.42 0.1 170);
+	--color-accent: oklch(0.75 0.16 90);
+
+	--color-text: oklch(0.35 0.07 55);
+	--color-text-muted: oklch(0.55 0.04 70);
+
+	--color-bg: oklch(0.96 0.01 80);
+	--color-bg-soft: oklch(0.93 0.02 75);
+	--color-bg-warm: oklch(0.9 0.03 70);
+
+	--color-code-bg: oklch(0.35 0.05 50);
+	--color-code-text: oklch(0.75 0.06 45);
+
+	--color-focus: oklch(0.56 0.1 175);
+	--color-hover: oklch(0.42 0.1 170);
+
+	--gradient-bg-top: oklch(0.5 0.08 175 / 0.18);
+	--gradient-bg-fade: oklch(0.5 0.08 175 / 0.06);
+	--table-header-start: oklch(0.42 0.1 170);
+	--table-header-end: oklch(0.5 0.08 175);
+	--table-header-border: oklch(0.35 0.08 168);
+	--table-row-even: oklch(0.93 0.02 75);
+	--table-border: oklch(0.85 0.04 70 / 0.5);
+	--shiki-bg: oklch(0.14 0.03 55);
+	--shiki-border: oklch(0.25 0.04 55 / 0.3);
+	--shadow-color: oklch(0.3 0.04 50 / 0.1);
+	--shadow-table: oklch(0.3 0.04 50 / 0.08);
+	--featured-card-end: oklch(0.55 0.08 175);
+	--featured-card-shadow: oklch(0.35 0.08 170 / 0.2);
+	--focus-ring: oklch(0.56 0.1 175 / 0.25);
+
+	--diff-remove-bg-start: oklch(0.55 0.16 25 / 0.12);
+	--diff-remove-bg-end: oklch(0.55 0.16 25 / 0.04);
+	--diff-remove-border: oklch(0.55 0.16 25);
+	--diff-add-bg-start: oklch(0.56 0.12 175 / 0.12);
+	--diff-add-bg-end: oklch(0.56 0.12 175 / 0.04);
+	--diff-add-border: oklch(0.56 0.12 175);
+
+	--shiki-shadow: oklch(0.1 0.02 50 / 0.3);
+	--shiki-line-number: oklch(0.5 0.06 175);
+
+	--failure-bg: oklch(0.96 0.01 80);
+	--failure-border: oklch(0.88 0.02 75);
+	--failure-content-text: oklch(0.35 0.07 55);
+	--failure-highlight: oklch(0.55 0.16 25);
+	--failure-chat-bg: oklch(0.98 0.01 80);
+	--failure-chat-border: oklch(0.7 0.06 25);
+
+	--structure-bg: oklch(0.96 0.02 80);
+	--structure-border: oklch(0.88 0.02 80);
+	--structure-scrollbar-thumb: oklch(0.6 0.08 175);
+	--structure-file-text: oklch(0.35 0.07 55);
+
+	--nook-pink: oklch(0.7 0.12 350);
+	--nook-purple: oklch(0.55 0.18 300);
+	--nook-blue: oklch(0.58 0.14 270);
+	--nook-yellow: oklch(0.82 0.16 90);
+	--nook-orange: oklch(0.65 0.12 55);
+	--nook-teal: oklch(0.65 0.1 175);
+	--nook-green: oklch(0.65 0.12 140);
+	--nook-red: oklch(0.6 0.16 25);
+	--nook-lime: oklch(0.68 0.14 120);
+	--nook-yellow-green: oklch(0.73 0.14 110);
+	--nook-brown: oklch(0.42 0.07 55);
+	--nook-peach: oklch(0.6 0.12 35);
+
+	--animal-press-shadow: oklch(0.75 0.04 55);
+
+	font-family:
+		Nunito, "Zen Maru Gothic", "M PLUS Rounded 1c",
+		"Smiley Sans", "HarmonyOS Sans SC", "MiSans",
+		-apple-system, "PingFang SC", "Hiragino Sans GB",
+		"Microsoft YaHei", "Noto Sans SC",
+		sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+}
+
+/* ===================================
+   Animal Crossing: Slide Background
+   - Frontmatter class: animal-crossing is applied to .slidev-layout by Slidev
+   - But #slideshow/.slidev-page are parent wrappers that don't get that class
+   - So we target .animal-crossing.slidev-layout (the actual element) and use
+     CSS inheritance + :has() on parent for the outer background
+   =================================== */
+.animal-crossing.slidev-layout {
+	background: rgba(247, 243, 223, 0.88);
+	border-radius: 0;
+	box-shadow: 0 8px 32px rgba(61, 52, 40, 0.15);
+}
+
+/* Cover slide: remove overlay to show island bg directly */
+.animal-crossing.slidev-layout:has(.island-cover) {
+	background: transparent;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+/* Make the parent slidev-page show the island background */
+#slideshow:has(.animal-crossing),
+.slidev-page:has(.animal-crossing) {
+	background:
+		url("/home_bg.svg") center / cover no-repeat,
+		#7dc395;
+}
+
+/* ===================================
+   Card Grid Layouts (Global)
+   =================================== */
+.cards-grid-2 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: 1fr;
+	align-items: stretch;
+	gap: 1.5rem;
+	width: 100%;
+}
+
+.cards-grid-3 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: 1fr;
+	align-items: stretch;
+	gap: 1.25rem;
+	width: 100%;
+}
+
+/* Make v-click wrapper + IslandCard stretch to fill grid cell */
+.cards-grid-2 .slidev-vclick-target,
+.cards-grid-3 .slidev-vclick-target {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.cards-grid-2 .slidev-vclick-target > div,
+.cards-grid-3 .slidev-vclick-target > div,
+.cards-grid-2 .animal-card-DJ515,
+.cards-grid-2 .animal-card-title-PL-WB,
+.cards-grid-3 .animal-card-DJ515,
+.cards-grid-3 .animal-card-title-PL-WB {
+	height: 100%;
+	flex: 1;
+	margin-bottom: 0;
+}
+
+/* ===================================
+   Animal Crossing: Card Grid Overrides
+   =================================== */
+.slidev-page:has(.animal-crossing) {
+	border-radius: 0;
+}
+
+.animal-crossing .slidev-code-wrapper {
+	margin-bottom: 0;
+}
+
+.animal-crossing .shiki {
+	border-radius: 18px;
+}
+
+.animal-crossing table {
+	border-radius: 18px;
+}
+
+.animal-crossing img {
+	border-radius: 18px;
+}
+
+.animal-crossing .card {
+	border-radius: 18px;
+}
+
+.animal-crossing .highlight-box {
+	border-radius: 18px;
+	border-left-width: 6px;
+}
+
+.animal-crossing blockquote {
+	border-radius: 18px;
+}
+
+.animal-crossing code {
+	border-radius: 6px;
+}
+
+.animal-crossing .btn-primary {
+	border-radius: 50px;
+}
+
+.animal-crossing .btn-secondary {
+	border-radius: 50px;
+}
+
+.animal-crossing .featured-card {
+	border-radius: 24px;
+}
+
+/* ===================================
+   Animal Crossing: 3D Press Effect
+   =================================== */
+.animal-crossing .press-3d {
+	box-shadow: 0 5px 0 0 var(--animal-press-shadow);
+	border-radius: 50px;
+	transition:
+		transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+		box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
+	border: 2px solid oklch(0.7 0.04 55);
+}
+
+.animal-crossing .press-3d:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 6px 0 0 var(--animal-press-shadow);
+}
+
+.animal-crossing .press-3d:active {
+	transform: translateY(2px);
+	box-shadow: 0 1px 0 0 var(--animal-press-shadow);
+}
+
+/* ===================================
+   Animal Crossing: Hover Lift Effect
+   =================================== */
+.animal-crossing .hover-lift {
+	transition:
+		transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+		box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animal-crossing .hover-lift:hover {
+	transform: translateY(-4px);
+}
+
+/* ===================================
+   Episode 09: AI SEO Audit
+   =================================== */
+.audit-flow {
+	display: grid;
+	gap: 0.7rem;
+}
+
+.audit-flow-step {
+	display: grid;
+	grid-template-columns: 3rem 1fr;
+	align-items: center;
+	gap: 0.9rem;
+	padding: 0.72rem 0.95rem;
+	border-radius: 22px;
+	background: rgba(255, 255, 255, 0.58);
+	box-shadow: 0 6px 18px rgba(103, 83, 56, 0.1);
+}
+
+.audit-flow-step span,
+.audit-score-pill span {
+	display: grid;
+	place-items: center;
+	width: 2.25rem;
+	height: 2.25rem;
+	border-radius: 999px;
+	background: rgba(113, 92, 64, 0.12);
+	color: var(--nook-brown, #725d42);
+	font-weight: 800;
+}
+
+.audit-flow-step strong {
+	display: block;
+	font-size: 1rem;
+}
+
+.audit-flow-step em {
+	display: block;
+	color: rgba(88, 72, 50, 0.72);
+	font-style: normal;
+	font-size: 0.78rem;
+}
+
+.audit-score-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.8rem;
+}
+
+.audit-score-pill {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0.7rem;
+	align-items: center;
+	min-height: 5.35rem;
+	padding: 0.8rem;
+	border-radius: 22px;
+	background: rgba(255, 255, 255, 0.55);
+	box-shadow: 0 6px 18px rgba(103, 83, 56, 0.09);
+}
+
+.audit-score-pill strong {
+	display: block;
+	line-height: 1.1;
+	font-size: 0.9rem;
+}
+
+.audit-score-pill small {
+	color: rgba(88, 72, 50, 0.7);
+	font-size: 0.72rem;
+}
+
+.audit-band {
+	display: grid;
+	gap: 0.45rem;
+}
+
+.audit-band-row {
+	display: grid;
+	grid-template-columns: 5.2rem 8.4rem 1fr;
+	align-items: center;
+	gap: 0.7rem;
+	padding: 0.52rem 0.72rem;
+	border-radius: 18px;
+	background: rgba(255, 255, 255, 0.48);
+}
+
+.audit-band-row strong {
+	font-size: 0.88rem;
+}
+
+.audit-band-row span {
+	font-weight: 800;
+	color: var(--nook-brown, #725d42);
+}
+
+.audit-mini-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.75rem;
+}
+
+.audit-mini {
+	padding: 0.75rem 0.85rem;
+	border-radius: 18px;
+	background: rgba(255, 255, 255, 0.52);
+}
+
+.audit-mini strong {
+	display: block;
+	margin-bottom: 0.25rem;
+}
+
+.audit-mini p {
+	margin: 0;
+	font-size: 0.78rem;
+	line-height: 1.35;
+}
+
+.audit-rule-fields {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.5rem;
+	margin-top: 0.6rem;
+}
+
+.audit-rule-fields > .slidev-vclick-target {
+	min-width: 0;
+	height: 100%;
+}
+
+.audit-rule-field {
+	min-height: 3.2rem;
+	height: 100%;
+	padding: 0.48rem 0.62rem;
+	border-radius: 16px;
+	background: rgba(255, 255, 255, 0.52);
+	box-shadow: 0 5px 14px rgba(103, 83, 56, 0.08);
+}
+
+.audit-rule-field strong {
+	display: block;
+	margin-bottom: 0.14rem;
+	font-size: 0.74rem;
+	color: var(--nook-brown, #725d42);
+}
+
+.audit-rule-field p {
+	margin: 0;
+	font-size: 0.62rem;
+	line-height: 1.24;
+}
+
+.audit-code {
+	max-height: 54vh;
+	overflow: auto;
+	scrollbar-width: none;
+}
+
+.audit-code::-webkit-scrollbar {
+	display: none;
+}
+
+/* ===================================
+   Animal Crossing: Organic Blob Clip-path
+   =================================== */
+.animal-crossing .blob-shape {
+	clip-path: ellipse(50% 50% at 50% 50%);
+}
+
+/* ===================================
+   Animal Crossing: Leaf Cursor Utility
+   =================================== */
+.animal-crossing .leaf-cursor {
+	cursor:
+		url("data:image/png;base64,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")
+		4 0,
+		auto;
+}
+
+/* ===================================
+   Animal Crossing: NookPhone Color Utility Classes
+   =================================== */
+.animal-crossing .nook-pink-bg {
+	background: var(--nook-pink);
+	color: oklch(0.25 0.05 350);
+}
+.animal-crossing .nook-purple-bg {
+	background: var(--nook-purple);
+	color: oklch(0.95 0.02 300);
+}
+.animal-crossing .nook-blue-bg {
+	background: var(--nook-blue);
+	color: oklch(0.95 0.02 270);
+}
+.animal-crossing .nook-yellow-bg {
+	background: var(--nook-yellow);
+	color: oklch(0.25 0.05 90);
+}
+.animal-crossing .nook-orange-bg {
+	background: var(--nook-orange);
+	color: oklch(0.95 0.02 55);
+}
+.animal-crossing .nook-teal-bg {
+	background: var(--nook-teal);
+	color: oklch(0.2 0.03 175);
+}
+.animal-crossing .nook-green-bg {
+	background: var(--nook-green);
+	color: oklch(0.2 0.04 140);
+}
+.animal-crossing .nook-red-bg {
+	background: var(--nook-red);
+	color: oklch(0.95 0.02 25);
+}
+.animal-crossing .nook-lime-bg {
+	background: var(--nook-lime);
+	color: oklch(0.25 0.05 120);
+}
+.animal-crossing .nook-yellow-green-bg {
+	background: var(--nook-yellow-green);
+	color: oklch(0.25 0.05 110);
+}
+.animal-crossing .nook-brown-bg {
+	background: var(--nook-brown);
+	color: oklch(0.95 0.02 55);
+}
+.animal-crossing .nook-peach-bg {
+	background: var(--nook-peach);
+	color: oklch(0.95 0.02 35);
+}
+
+.animal-crossing .nook-pink-text {
+	color: var(--nook-pink);
+}
+.animal-crossing .nook-purple-text {
+	color: var(--nook-purple);
+}
+.animal-crossing .nook-blue-text {
+	color: var(--nook-blue);
+}
+.animal-crossing .nook-yellow-text {
+	color: var(--nook-yellow);
+}
+.animal-crossing .nook-orange-text {
+	color: var(--nook-orange);
+}
+.animal-crossing .nook-teal-text {
+	color: var(--nook-teal);
+}
+.animal-crossing .nook-green-text {
+	color: var(--nook-green);
+}
+.animal-crossing .nook-red-text {
+	color: var(--nook-red);
+}
+.animal-crossing .nook-lime-text {
+	color: var(--nook-lime);
+}
+.animal-crossing .nook-yellow-green-text {
+	color: var(--nook-yellow-green);
+}
+.animal-crossing .nook-brown-text {
+	color: var(--nook-brown);
+}
+.animal-crossing .nook-peach-text {
+	color: var(--nook-peach);
+}
+
+/* ===================================
+   Animal Crossing: Card Spacing & Grid Layouts
+   =================================== */
+
+/* Automatic spacing between cards on a slide */
+.animal-crossing .animal-card-DJ515,
+.animal-crossing .animal-card-title-PL-WB {
+	margin-bottom: 1.25rem;
+}
+
+.animal-crossing .animal-card-DJ515:last-child,
+.animal-crossing .animal-card-title-PL-WB:last-child {
+	margin-bottom: 0;
+}
+
+/* Multi-card grid layout utility */
+.animal-crossing .cards-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.25rem;
+	width: 100%;
+}
+
+.animal-crossing .cards-grid .animal-card-DJ515,
+.animal-crossing .cards-grid .animal-card-title-PL-WB {
+	margin-bottom: 0;
+}
+
+/* 2-column card grid for slides with exactly 2 cards */
+.animal-crossing .cards-grid-2 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+	width: 100%;
+}
+
+/* 3-column card grid for slides with 3 cards */
+.animal-crossing .cards-grid-3 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.25rem;
+	width: 100%;
+}
+
+/* Responsive: stack on very narrow viewports */
+@media (max-width: 640px) {
+	.animal-crossing .cards-grid-2,
+	.animal-crossing .cards-grid-3 {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Better content distribution inside animal-crossing slides */
+.animal-crossing.slidev-layout:not(:has(.island-cover)) {
+	justify-content: center;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+/* ===================================
+   Episode 08: Docx Editor Visual System
+   =================================== */
+.docx-brief {
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
+	gap: 1.2rem;
+	align-items: stretch;
+	margin-top: 2rem;
+}
+
+.docx-brief-main,
+.docx-paper,
+.docx-package,
+.docx-flow,
+.docx-layer,
+.docx-summary {
+	background: color-mix(in oklch, var(--color-bg) 82%, white 18%);
+	border-radius: 22px;
+	box-shadow:
+		0 14px 30px oklch(0.25 0.04 55 / 0.1),
+		inset 0 0 0 1px oklch(0.72 0.04 65 / 0.22);
+}
+
+.docx-brief-main {
+	padding: 2rem 2.2rem;
+	background: linear-gradient(135deg, oklch(0.82 0.09 170) 0%, oklch(0.72 0.08 155) 100%);
+	color: oklch(0.24 0.04 55);
+}
+
+.docx-brief-main h2 {
+	max-width: 14ch;
+	margin: 0 0 1.4rem;
+	font-size: clamp(2rem, 5vw, 3.25rem);
+	line-height: 1.06;
+}
+
+.docx-brief-main p {
+	max-width: 42ch;
+	margin: 0;
+	color: oklch(0.98 0.02 80);
+	font-size: 1.05rem;
+	font-weight: 650;
+	line-height: 1.75;
+}
+
+.docx-brief-side {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.docx-brief > .slidev-vclick-target,
+.docx-brief-side > .slidev-vclick-target,
+.docx-map > .slidev-vclick-target,
+.docx-ribbon > .slidev-vclick-target,
+.docx-package-grid > .slidev-vclick-target,
+.docx-save-flow > .slidev-vclick-target,
+.docx-layer-stack > .slidev-vclick-target,
+.docx-philosophy > .slidev-vclick-target,
+.docx-philosophy-side > .slidev-vclick-target {
+	min-width: 0;
+}
+
+.docx-brief > .slidev-vclick-target,
+.docx-brief > .slidev-vclick-target > .docx-brief-main,
+.docx-brief-side > .slidev-vclick-target > .docx-kv,
+.docx-map > .slidev-vclick-target > .docx-chip,
+.docx-ribbon > .slidev-vclick-target > .docx-chip,
+.docx-package-grid > .slidev-vclick-target > .docx-package,
+.docx-layer-stack > .slidev-vclick-target > .docx-layer,
+.docx-philosophy > .slidev-vclick-target,
+.docx-philosophy > .slidev-vclick-target > .docx-philosophy-main,
+.docx-philosophy-side > .slidev-vclick-target > div {
+	height: 100%;
+}
+
+.docx-kv {
+	padding: 1rem 1.15rem;
+	background: color-mix(in oklch, var(--color-bg-soft) 82%, white 18%);
+	border-radius: 16px;
+	box-shadow: inset 0 0 0 1px oklch(0.72 0.04 65 / 0.18);
+}
+
+.docx-compare {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 1rem;
+	margin-top: 1.3rem;
+}
+
+.docx-compare-card,
+.docx-compare-result {
+	padding: 1.35rem 1.45rem;
+	border-radius: 22px;
+	box-shadow:
+		0 14px 28px oklch(0.25 0.04 55 / 0.09),
+		inset 0 0 0 1px oklch(0.72 0.04 65 / 0.18);
+}
+
+.docx-compare-card {
+	min-height: 12rem;
+}
+
+.docx-compare > .slidev-vclick-target > .docx-compare-card {
+	height: 100%;
+}
+
+.docx-compare-muted {
+	background: oklch(0.82 0.12 28);
+}
+
+.docx-compare-strong {
+	background: oklch(0.74 0.09 145);
+}
+
+.docx-compare-card span,
+.docx-compare-result span {
+	display: block;
+	margin-bottom: 0.75rem;
+	color: color-mix(in oklch, var(--color-text) 58%, transparent);
+	font-size: 0.74rem;
+	font-weight: 850;
+	text-transform: uppercase;
+}
+
+.docx-compare-card h3,
+.docx-compare-result h3 {
+	margin: 0 0 0.8rem;
+	color: var(--color-text);
+	font-size: 1.6rem;
+	line-height: 1.16;
+}
+
+.docx-compare-card p,
+.docx-compare-result p {
+	margin: 0;
+	color: oklch(0.98 0.02 80);
+	font-size: 1rem;
+	font-weight: 650;
+	line-height: 1.58;
+}
+
+.docx-compare-result {
+	margin-top: 1rem;
+	background: color-mix(in oklch, var(--color-bg-soft) 78%, white 22%);
+	box-shadow:
+		inset 0.3rem 0 0 oklch(0.55 0.11 170),
+		0 12px 24px oklch(0.25 0.04 55 / 0.08);
+}
+
+.docx-compare-result p {
+	color: var(--color-text);
+	font-weight: 500;
+}
+
+.docx-office-table-wrap {
+	margin-top: 1.25rem;
+	overflow: hidden;
+	background: transparent;
+	border-radius: 20px;
+	box-shadow:
+		0 14px 30px oklch(0.25 0.04 55 / 0.08),
+		inset 0 0 0 1px oklch(0.72 0.04 65 / 0.2);
+}
+
+.docx-office-table {
+	width: 100%;
+	border-collapse: collapse;
+	color: var(--color-text);
+	font-size: 0.72rem;
+	line-height: 1.26;
+	margin: 0;
+	table-layout: fixed;
+}
+
+.docx-office-table th {
+	padding: 0.68rem 0.82rem;
+	background: oklch(0.55 0.11 170);
+	color: var(--color-bg);
+	font-size: 0.86rem;
+	font-weight: 900;
+	text-align: left;
+}
+
+.docx-office-table th:first-child {
+	width: 14%;
+}
+
+.docx-office-table th:nth-child(2),
+.docx-office-table td:nth-child(2) {
+	width: 43%;
+	background: color-mix(in oklch, var(--color-bg-soft) 76%, oklch(0.86 0.07 165) 24%);
+}
+
+.docx-office-table th:nth-child(2) {
+	background: oklch(0.46 0.1 170);
+}
+
+.docx-office-table th:nth-child(3) {
+	background: oklch(0.52 0.11 35);
+}
+
+.docx-office-table td {
+	padding: 0.54rem 0.82rem;
+	border-bottom: 1px solid oklch(0.72 0.04 65 / 0.22);
+	background: color-mix(in oklch, var(--color-bg-soft) 88%, white 12%);
+	font-weight: 540;
+	vertical-align: middle;
+	overflow-wrap: anywhere;
+}
+
+.docx-office-table tr:last-child td {
+	border-bottom: 0;
+}
+
+.docx-office-table td:first-child {
+	color: color-mix(in oklch, var(--color-text) 72%, transparent);
+	font-weight: 860;
+}
+
+.docx-office-table td:nth-child(2) {
+	font-weight: 680;
+}
+
+.docx-office-takeaway {
+	padding: 0.95rem 1.15rem;
+	margin-top: 0.85rem;
+	background: color-mix(in oklch, var(--color-bg) 84%, white 16%);
+	border-radius: 18px;
+	box-shadow:
+		inset 0.28rem 0 0 var(--color-primary),
+		0 10px 22px oklch(0.25 0.04 55 / 0.07);
+}
+
+.docx-office-takeaway strong {
+	display: block;
+	margin-bottom: 0.25rem;
+	color: oklch(0.44 0.1 170);
+	font-size: 1.05rem;
+}
+
+.docx-office-takeaway p {
+	margin: 0;
+	color: var(--color-text);
+	font-size: 0.88rem;
+	font-weight: 560;
+	line-height: 1.42;
+}
+
+.docx-kv span,
+.docx-chip span,
+.docx-package span,
+.docx-step span,
+.docx-layer span {
+	display: block;
+	margin-bottom: 0.25rem;
+	color: color-mix(in oklch, var(--color-text) 62%, transparent);
+	font-size: 0.72rem;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+
+.docx-kv strong,
+.docx-package strong,
+.docx-step strong,
+.docx-layer strong {
+	display: block;
+	color: var(--color-text);
+	font-size: 1.05rem;
+	line-height: 1.35;
+	overflow-wrap: anywhere;
+}
+
+.docx-map {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.75rem;
+	margin-top: 1rem;
+}
+
+.docx-map .docx-chip:first-child {
+	grid-row: auto;
+	min-height: 0;
+}
+
+.docx-chip {
+	position: relative;
+	padding: 1.15rem 1.25rem;
+	background: color-mix(in oklch, var(--color-bg-soft) 86%, white 14%);
+	border-radius: 18px;
+	box-shadow: inset 0 0 0 1px oklch(0.72 0.04 65 / 0.18);
+}
+
+.docx-chip::before {
+	content: attr(data-index);
+	display: inline-grid;
+	width: 2rem;
+	height: 2rem;
+	margin-bottom: 0.7rem;
+	place-items: center;
+	background: var(--color-primary);
+	border-radius: 50%;
+	color: var(--color-bg);
+	font-weight: 900;
+}
+
+.docx-map .docx-chip {
+	min-height: 9rem;
+	padding: 0.95rem 1rem;
+}
+
+.docx-map .docx-chip::before {
+	width: 1.6rem;
+	height: 1.6rem;
+	margin-bottom: 0.45rem;
+	font-size: 0.8rem;
+}
+
+.docx-map .docx-chip h3 {
+	font-size: 1.15rem;
+}
+
+.docx-map .docx-chip p {
+	font-size: 0.9rem;
+}
+
+.docx-map .slidev-vclick-target {
+	min-width: 0;
+}
+
+.docx-map .slidev-vclick-target > .docx-chip {
+	height: 100%;
+}
+
+.docx-chip h3,
+.docx-layer h3,
+.docx-summary h3 {
+	margin: 0 0 0.45rem;
+	color: var(--color-text);
+}
+
+.docx-chip p,
+.docx-layer p,
+.docx-summary p,
+.docx-package p {
+	margin: 0;
+	line-height: 1.55;
+}
+
+.docx-ribbon {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 0.75rem;
+	margin-top: 1.6rem;
+}
+
+.docx-ribbon .docx-chip {
+	min-height: 12.5rem;
+}
+
+.docx-flow {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 0.7rem;
+	align-items: stretch;
+	padding: 1.2rem;
+	margin-top: 1rem;
+}
+
+.docx-step {
+	position: relative;
+	min-height: 8rem;
+	padding: 1rem;
+	background: color-mix(in oklch, var(--color-bg) 70%, oklch(0.82 0.09 170) 30%);
+	border-radius: 16px;
+}
+
+.docx-step:not(:last-child)::after {
+	content: "→";
+	position: absolute;
+	top: 50%;
+	right: -0.62rem;
+	z-index: 2;
+	color: var(--color-primary);
+	font-weight: 900;
+	transform: translateY(-50%);
+}
+
+.docx-save-note {
+	margin-top: 2rem;
+	padding: 1.25rem 1.4rem;
+	background:
+		linear-gradient(
+			135deg,
+			color-mix(in oklch, var(--color-bg-soft) 74%, white 26%),
+			color-mix(in oklch, var(--color-bg) 76%, oklch(0.82 0.09 170) 24%)
+		);
+	border-radius: 18px;
+	box-shadow:
+		inset 0.3rem 0 0 oklch(0.55 0.11 170),
+		0 12px 24px oklch(0.25 0.04 55 / 0.08);
+}
+
+.docx-save-note span,
+.docx-build-order span,
+.docx-save-step span,
+.docx-philosophy-main span,
+.docx-philosophy-side span {
+	display: block;
+	margin-bottom: 0.35rem;
+	color: color-mix(in oklch, var(--color-text) 62%, transparent);
+	font-size: 0.72rem;
+	font-weight: 850;
+	text-transform: uppercase;
+}
+
+.docx-save-note h3 {
+	margin: 0 0 0.45rem;
+	color: oklch(0.44 0.1 170);
+	font-size: 1.55rem;
+}
+
+.docx-save-note p {
+	margin: 0;
+	font-size: 0.98rem;
+	line-height: 1.58;
+}
+
+.docx-save-flow {
+	display: grid;
+	gap: 0.55rem;
+	padding: 1rem;
+	margin-top: 0.25rem;
+	background: color-mix(in oklch, var(--color-bg) 82%, white 18%);
+	border-radius: 22px;
+	box-shadow:
+		0 14px 30px oklch(0.25 0.04 55 / 0.1),
+		inset 0 0 0 1px oklch(0.72 0.04 65 / 0.18);
+}
+
+.docx-save-step {
+	position: relative;
+	display: grid;
+	grid-template-columns: 2.2rem minmax(0, 1fr);
+	column-gap: 0.8rem;
+	align-items: center;
+	min-height: 3.7rem;
+	padding: 0.65rem 0.8rem;
+	background: color-mix(in oklch, var(--color-bg-soft) 84%, white 16%);
+	border-radius: 14px;
+}
+
+.docx-save-flow > .slidev-vclick-target > .docx-save-step {
+	height: 100%;
+}
+
+.docx-save-step:not(:last-child)::after {
+	content: "";
+	position: absolute;
+	bottom: -0.5rem;
+	left: 1.88rem;
+	width: 0.18rem;
+	height: 0.5rem;
+	background: oklch(0.55 0.11 170);
+	border-radius: 999px;
+}
+
+.docx-save-step span {
+	grid-row: 1 / span 2;
+	display: grid;
+	width: 2rem;
+	height: 2rem;
+	margin: 0;
+	place-items: center;
+	background: oklch(0.55 0.11 170);
+	border-radius: 50%;
+	color: var(--color-bg);
+}
+
+.docx-save-step strong {
+	color: var(--color-text);
+	font-size: 1rem;
+	line-height: 1.25;
+	overflow-wrap: anywhere;
+}
+
+.docx-save-step em {
+	color: color-mix(in oklch, var(--color-text) 70%, transparent);
+	font-size: 0.78rem;
+	font-style: normal;
+}
+
+.docx-layer-stack {
+	display: grid;
+	gap: 1rem;
+	margin-top: 1.4rem;
+}
+
+.docx-layer {
+	padding: 1.35rem 1.55rem;
+}
+
+.docx-layer:first-child {
+	margin-left: 4rem;
+}
+
+.docx-layer:last-child {
+	margin-right: 4rem;
+	background: color-mix(in oklch, var(--color-bg) 70%, oklch(0.8 0.08 195) 30%);
+}
+
+.docx-package-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.85rem;
+	margin-top: 1rem;
+}
+
+.docx-package {
+	padding: 1rem 1.15rem;
+}
+
+.docx-build-order {
+	padding: 1.55rem 1.65rem;
+	background:
+		linear-gradient(
+			145deg,
+			color-mix(in oklch, var(--color-bg) 72%, oklch(0.82 0.09 170) 28%),
+			var(--color-bg-soft)
+		);
+	border-radius: 22px;
+	box-shadow:
+		0 14px 30px oklch(0.25 0.04 55 / 0.1),
+		inset 0 0 0 1px oklch(0.72 0.04 65 / 0.2);
+}
+
+.docx-build-order strong {
+	display: block;
+	margin-bottom: 0.9rem;
+	color: var(--color-text);
+	font-size: 1.8rem;
+	line-height: 1.18;
+}
+
+.docx-build-order p {
+	margin: 0;
+	font-size: 1rem;
+	line-height: 1.65;
+}
+
+.docx-summary {
+	padding: 2rem 2.2rem;
+	margin-top: 1.6rem;
+	background: linear-gradient(
+		135deg,
+		color-mix(in oklch, var(--color-bg) 62%, oklch(0.82 0.09 170) 38%),
+		var(--color-bg-soft)
+	);
+}
+
+.docx-summary h3 {
+	max-width: 18ch;
+	font-size: 2rem;
+	line-height: 1.12;
+}
+
+.docx-summary p {
+	max-width: 54ch;
+}
+
+.docx-philosophy {
+	display: grid;
+	grid-template-columns: minmax(0, 1.18fr) minmax(17rem, 0.82fr);
+	gap: 1rem;
+	align-items: stretch;
+	margin-top: 1.5rem;
+}
+
+.docx-philosophy-main,
+.docx-philosophy-side > div {
+	background: color-mix(in oklch, var(--color-bg) 82%, white 18%);
+	border-radius: 22px;
+	box-shadow:
+		0 14px 30px oklch(0.25 0.04 55 / 0.1),
+		inset 0 0 0 1px oklch(0.72 0.04 65 / 0.2);
+}
+
+.docx-philosophy-main {
+	padding: 1.9rem 2rem;
+	background: color-mix(in oklch, var(--color-bg-soft) 72%, white 28%);
+}
+
+.docx-philosophy-main h2 {
+	max-width: 13ch;
+	margin: 0 0 1rem;
+	color: var(--color-text);
+	font-size: 2.35rem;
+	line-height: 1.06;
+}
+
+.docx-philosophy-main p {
+	max-width: 38ch;
+	margin: 0;
+	color: var(--color-text);
+	font-size: 1.02rem;
+	font-weight: 500;
+	line-height: 1.7;
+}
+
+.docx-philosophy-side {
+	display: grid;
+	gap: 0.85rem;
+}
+
+.docx-philosophy-side > div {
+	padding: 1.25rem 1.35rem;
+}
+
+.docx-philosophy-side strong {
+	display: block;
+	margin-bottom: 0.35rem;
+	color: var(--color-text);
+	font-size: 1.22rem;
+}
+
+.docx-philosophy-side p {
+	margin: 0;
+	font-size: 0.92rem;
+	line-height: 1.55;
+}

@@ -1,0 +1,43 @@
+# Weeko
+
+> 面向知识类视频创作者的 Agent 内容生产工具
+
+Weeko 将资料研究、内容策划、幻灯片、口播、音频和视频制作组织为可复用工作流。Slidev 与设计系统负责内容呈现和视觉一致性，`weekly/` 负责按期管理产物，`dapp/` 提供可选的可信发布扩展。
+
+## 项目文档
+
+### 设计系统
+
+- [设计系统概览](design_system/README.md)
+- [设计令牌](design_system/tokens.md)
+- [布局模式](design_system/layouts.md)
+- [组件目录](design_system/components.md)
+- [实用类](design_system/utility-classes.md)
+- [使用示例](design_system/examples.md)
+- [AI 指南](design_system/ai-guide.md)
+
+### 工作流程
+
+- [幻灯片生成](workflows/slide-generation.md)
+- [口播脚本生成](workflows/script-generation.md)
+- [音频生成](workflows/tts-workflow.md)
+- [视频生成](workflows/video-generation.md)
+- [视觉调试](workflows/visual-debug.md)
+
+### 每周内容
+
+- `weekly/{year}-W{week}-{topic}/` — 每期包含 source.md、slides.md、script.md，可包含 audio/ 与 video/ 生成流程配置
+
+### 工具
+
+- `tools/tts.py` — ElevenLabs 分段 TTS 生成工具
+- `tools/export-slide-states.ts` — 导出 Slidev 页面与 v-click 状态 PNG，用于 HyperFrames 视频生成
+
+### 可选扩展
+
+- `dapp/` — 使用 IPFS 和公开网络保存内容版本、Agent 运行记录与发布凭证
+
+## 外部参考
+
+- [Slidev 官方文档](https://sli.dev/llms.txt): Slidev 完整文档索引，可按需获取具体页面（语法、组件、布局、导出、主题等）
+- [HyperFrames](https://github.com/heygen-com/hyperframes): HTML 视频合成与渲染工具

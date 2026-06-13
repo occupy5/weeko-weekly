@@ -1,0 +1,17 @@
+{
+  "schema": "weeko-chain-receipt@0.1.0",
+  "createdAt": "2026-06-12T06:47:42.431Z",
+  "chainId": "84532",
+  "rpcUrl": "https://sepolia.base.org",
+  "contractAddress": "0x821d0e78b09dc4e923845069d65dd26fdb4dd6c7",
+  "creator": "0x74A900b702c5103B5D588D7D8e265c4B972e08Ff",
+  "collector": "0x74A900b702c5103B5D588D7D8e265c4B972e08Ff",
+  "publicationId": "1",
+  "tokenId": "1",
+  "contentURI": "ipfs://bafkreicfo2wbv6mec6flkiihepvphhf3oq5ljf7vunfjoczviop3arosqe",
+  "workflowHash": "0xa7c91e479860a30083cdd56ae11b7618c2399c920c2278ba5210eea75acc5b4c",
+  "publishTxHash": "0x7c846c5a701702f72ec8ed67218e47d56c0df27107600aeacafa07144c65fde1",
+  "publishBlockNumber": 42739284,
+  "mintTxHash": "0x8e0b1fb9aaa1c80345555521b285b7621f6358b23486217be26d9262521e7259",
+  "mintBlockNumber": 42739287
+}

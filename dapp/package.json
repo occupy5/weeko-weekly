@@ -1,0 +1,66 @@
+{
+  "name": "weeko-mint-web3",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/hardhat",
+      "packages/nextjs"
+    ]
+  },
+  "scripts": {
+    "account": "yarn hardhat:account",
+    "account:import": "yarn workspace @weeko-mint/hardhat account:import",
+    "account:generate": "yarn workspace @weeko-mint/hardhat account:generate",
+    "account:reveal-pk": "yarn workspace @weeko-mint/hardhat account:reveal-pk",
+    "chain": "yarn hardhat:chain",
+    "compile": "yarn hardhat:compile",
+    "deploy": "yarn hardhat:deploy",
+    "fork": "yarn hardhat:fork",
+    "format": "yarn next:format && yarn hardhat:format",
+    "generate": "yarn account:generate",
+    "hardhat:account": "yarn workspace @weeko-mint/hardhat account",
+    "hardhat:chain": "yarn workspace @weeko-mint/hardhat chain",
+    "hardhat:check-types": "yarn workspace @weeko-mint/hardhat check-types",
+    "hardhat:clean": "yarn workspace @weeko-mint/hardhat clean",
+    "hardhat:compile": "yarn workspace @weeko-mint/hardhat compile",
+    "hardhat:deploy": "yarn workspace @weeko-mint/hardhat deploy",
+    "hardhat:flatten": "yarn workspace @weeko-mint/hardhat flatten",
+    "hardhat:fork": "yarn workspace @weeko-mint/hardhat fork",
+    "hardhat:format": "yarn workspace @weeko-mint/hardhat format",
+    "hardhat:generate": "yarn workspace @weeko-mint/hardhat generate",
+    "hardhat:hardhat-verify": "yarn workspace @weeko-mint/hardhat hardhat-verify",
+    "hardhat:lint": "yarn workspace @weeko-mint/hardhat lint",
+    "hardhat:lint-staged": "yarn workspace @weeko-mint/hardhat lint-staged",
+    "hardhat:publication:manifest": "yarn workspace @weeko-mint/hardhat publication:manifest",
+    "hardhat:publication:publish-local": "yarn workspace @weeko-mint/hardhat publication:publish-local",
+    "hardhat:publication:publish-base-sepolia": "yarn workspace @weeko-mint/hardhat publication:publish-base-sepolia",
+    "hardhat:publication:preflight-base-sepolia": "yarn workspace @weeko-mint/hardhat publication:preflight-base-sepolia",
+    "hardhat:test": "yarn workspace @weeko-mint/hardhat test",
+    "hardhat:verify": "yarn workspace @weeko-mint/hardhat verify",
+    "lint": "yarn next:lint && yarn hardhat:lint",
+    "next:build": "yarn workspace @weeko-mint/nextjs build",
+    "next:check-types": "yarn workspace @weeko-mint/nextjs check-types",
+    "next:format": "yarn workspace @weeko-mint/nextjs format",
+    "next:lint": "yarn workspace @weeko-mint/nextjs lint",
+    "next:serve": "yarn workspace @weeko-mint/nextjs serve",
+    "postinstall": "husky",
+    "precommit": "lint-staged",
+    "start": "yarn workspace @weeko-mint/nextjs dev",
+    "test": "yarn hardhat:test",
+    "vercel": "yarn workspace @se-2/nextjs vercel",
+    "vercel:yolo": "yarn workspace @se-2/nextjs vercel:yolo",
+    "ipfs": "yarn workspace @weeko-mint/nextjs ipfs",
+    "vercel:login": "yarn workspace @weeko-mint/nextjs vercel:login",
+    "verify": "yarn hardhat:verify",
+    "hardhat-verify": "yarn hardhat:hardhat-verify"
+  },
+  "packageManager": "yarn@4.13.0",
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10"
+  },
+  "engines": {
+    "node": ">=22.10.0"
+  }
+}

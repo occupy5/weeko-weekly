@@ -1,0 +1,98 @@
+{
+  "schema": "weeko-publication@0.2.0",
+  "title": "Agents' Last Exam",
+  "creator": "0x74A900b702c5103B5D588D7D8e265c4B972e08Ff",
+  "summary": "从广覆盖设计、Generalist CUA-agent、运行回路到 experiment 配置，重新理解 ALE 如何把 Agent 评估拉回“工作是否真的完成”。",
+  "createdAt": "2026-06-12T06:40:38.795Z",
+  "assets": [
+    {
+      "path": "weekly/_current/source.md",
+      "sha256": "bdf91bb55af4042fd7757c13b59c69bbe35fd7afaf029eb7d1bed70e7fd5495b",
+      "bytes": 7394
+    },
+    {
+      "path": "weekly/_current/slides.md",
+      "sha256": "5af6d4b97924affc61d5217ddd4ce1ce39e67ffbcb11b289af6653cb093b37c5",
+      "bytes": 13132
+    },
+    {
+      "path": "weekly/_current/script.md",
+      "sha256": "c71be2f9456226f4f449013030ada75a534d3ed269ffc3efde159b8b9290e31a",
+      "bytes": 8078
+    },
+    {
+      "path": "weekly/_current/README.md",
+      "sha256": "54a750e0a2140e4b06c9986586b1944b8bc5d0595afa7678d20e2646ddf29b09",
+      "bytes": 508
+    },
+    {
+      "path": "weekly/_current/agent-run.json",
+      "sha256": "a7c91e479860a30083cdd56ae11b7618c2399c920c2278ba5210eea75acc5b4c",
+      "bytes": 3742
+    }
+  ],
+  "agent": {
+    "model": "GLM-5.1",
+    "runLog": "ipfs://bafkreifhzepepgdaumaihtovnlqrw5qyyi4zzeqmej4luuqq52tvvtc3jq",
+    "workflowHash": "0xa7c91e479860a30083cdd56ae11b7618c2399c920c2278ba5210eea75acc5b4c",
+    "workflow": [
+      {
+        "id": "research",
+        "label": "Research the requested topic",
+        "status": "completed",
+        "detail": "Re-read the Zread theme page and refreshed the facts against the current GitHub README, example_exp.yaml, and pyproject.toml."
+      },
+      {
+        "id": "source",
+        "label": "Rewrite the editorial source",
+        "status": "completed",
+        "detail": "Rebuilt the Chinese source document around the current public scope: 150 reference tasks, 55 industries, a 1,500+ corpus subset, and the ALE runtime model."
+      },
+      {
+        "id": "slides",
+        "label": "Generate the Slidev deck",
+        "status": "completed",
+        "detail": "Regenerated the deck with design-system components including IslandCoverSlide, SectionDivider, CardGrid + IslandCard, CalloutCard, TwoColumnLayout, ProjectStructurePanel, and DefaultClosingSlide."
+      },
+      {
+        "id": "script",
+        "label": "Write the narration script",
+        "status": "completed",
+        "detail": "Regenerated the narration script to match the new slide structure, about 8.5 minutes end to end."
+      },
+      {
+        "id": "build",
+        "label": "Verify the Slidev build",
+        "status": "completed",
+        "detail": "Ran bun run build twice; the second pass followed layout fixes found during visual review and completed successfully."
+      },
+      {
+        "id": "visual",
+        "label": "Inspect final slide states",
+        "status": "completed",
+        "detail": "Checked the deck at localhost:3040, verified 18 slides, and repaired two v-click grid pages so their final click states rendered correctly."
+      },
+      {
+        "id": "tts",
+        "label": "Generate narration audio",
+        "status": "skipped",
+        "detail": "Skipped because this rerun explicitly excludes TTS and the downstream audio pipeline."
+      },
+      {
+        "id": "video",
+        "label": "Render the final video",
+        "status": "skipped",
+        "detail": "Skipped because this rerun explicitly excludes the video-generation workflow."
+      }
+    ],
+    "metrics": {
+      "durationSeconds": 4366,
+      "iterations": 1,
+      "toolCalls": 29,
+      "slideCount": 18,
+      "buildAttempts": 2,
+      "visualIssues": 2,
+      "assetCount": 5
+    }
+  }
+}

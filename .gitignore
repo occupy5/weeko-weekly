@@ -1,0 +1,32 @@
+node_modules
+.DS_Store
+dist
+*.local
+.vite-inspect
+.remote-assets
+components.d.ts
+docs_priv/
+.agents/
+output/
+
+# Keep private episode archives local. The public repository only includes the
+# current example episode and excludes generated media.
+weekly/*
+!weekly/_current/
+!weekly/_current/**
+weekly/_current/audio/
+weekly/_current/video/
+weekly/_current/assets/audio/
+weekly/_current/assets/slides/
+weekly/_current/renders/
+weekly/_current/snapshots/
+
+# Generated media stays local. Publish a selected demo video as a GitHub
+# Release asset instead of adding large binary files to Git history.
+weekly/**/*.mp3
+weekly/**/*.wav
+weekly/**/*.m4a
+weekly/**/*.mp4
+weekly/**/*.mov
+weekly/**/*.webm
+weekly/**/*.mkv

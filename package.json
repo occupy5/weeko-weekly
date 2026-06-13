@@ -1,0 +1,41 @@
+{
+	"name": "weeko-weekly",
+	"description": "面向知识类视频创作者的 Agent 内容生产工具",
+	"license": "MIT",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "slidev --open",
+		"build": "slidev build",
+		"export": "slidev export",
+		"export:states": "bun tools/export-slide-states.ts",
+		"dapp": "cd dapp && corepack yarn start",
+		"dapp:build": "cd dapp && corepack yarn next:build",
+		"dapp:chain": "cd dapp && corepack yarn chain",
+		"dapp:compile": "cd dapp && corepack yarn compile",
+		"dapp:deploy": "cd dapp && corepack yarn deploy",
+		"dapp:deploy:base-sepolia": "cd dapp && corepack yarn deploy --network baseSepolia",
+		"dapp:manifest": "cd dapp && corepack yarn hardhat:publication:manifest",
+		"dapp:publish-latest": "cd dapp && corepack yarn hardhat:publication:publish-local",
+		"dapp:preflight:base-sepolia": "cd dapp && corepack yarn hardhat:publication:preflight-base-sepolia",
+		"dapp:publish:base-sepolia": "cd dapp && corepack yarn hardhat:publication:publish-base-sepolia",
+		"dapp:test": "cd dapp && corepack yarn test",
+		"format": "biome check --write --changed .",
+		"format:fix": "biome format --write .",
+		"lint": "biome check --write .",
+		"lint:check": "biome check .",
+		"ci": "biome ci ."
+	},
+	"dependencies": {
+		"@slidev/cli": "^52.1.0",
+		"@slidev/theme-apple-basic": "^0.25.1",
+		"@slidev/theme-default": "latest",
+		"@slidev/theme-seriph": "latest",
+		"animal-island-ui": "^0.3.0",
+		"vue": "^3.5.18"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.15",
+		"playwright-chromium": "^1.51.1"
+	}
+}
