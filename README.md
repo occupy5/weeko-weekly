@@ -87,7 +87,15 @@ corepack yarn install
 corepack yarn start
 ```
 
-打开 `http://localhost:3000`。当前配置默认连接 Base Sepolia，可直接查看已发布的 Creation Proof。
+打开 `http://localhost:3000`。如果需要指定端口，也可以用 `PORT=3001 corepack yarn start`。当前配置默认连接 Base Sepolia，可直接查看已发布的 Creation Proof。
+
+### dApp 预览与测试网合约
+
+![Weeko dApp live proof](public/screenshots/weeko-dapp-live-view.png)
+
+当前测试网合约：
+
+- Base Sepolia WeekoPublication: [0x821D0E78B09dc4e923845069d65DD26FdB4Dd6C7](https://sepolia.basescan.org/address/0x821D0E78B09dc4e923845069d65DD26FdB4Dd6C7)
 
 依赖安装完成后，也可以从项目根目录启动：
 
