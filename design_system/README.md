@@ -10,13 +10,14 @@
 
 ## 架构
 
-本项目采用**双层架构**：
+本项目采用**组件层 + 主题样式模块**的架构：
 
 - **结构层** (`components/core/`) — 信息组织与交互逻辑（主题无关）
 - **主题层** (`components/themes/`) — 视觉渲染变体（暖棕色 / 动物森友会 / 未来可扩展）
+- **主题 CSS** (`styles/themes/`) — 底层主题 UI 样式与主题级演示组合
 - **封面/社交** (`components/core/`) — DefaultCoverSlide、SocialLinks
 
-结构组件提供 `variant` prop 或继承 CSS 变量切换主题风格。
+结构组件提供 `variant` prop 或继承 CSS 变量切换主题风格；底层主题 UI 样式和纯 CSS 演示模式统一放入 `styles/themes/`，避免绑定到某一期内容目录。
 
 ## 文件构成
 
@@ -29,6 +30,14 @@ design_system/
 ├── utility-classes.md  # 实用类列表
 ├── ai-guide.md         # AI 快速指南
 └── examples.md         # 使用示例集
+```
+
+配套样式系统模块位于：
+
+```text
+styles/
+└── themes/
+    └── animal-island.css # 动森主题 UI 基础样式与演示组合样式
 ```
 
 ## 快速开始
@@ -80,4 +89,5 @@ AI 生成幻灯片时，请参考 [ai-guide.md](./ai-guide.md)。
 本设计系统持续改进。创建新组件时：
 1. 结构组件放入 `components/core/`
 2. 主题组件放入 `components/themes/`
-3. 同步更新 `components.md` 和 `ai-guide.md`
+3. 纯 CSS 主题模式放入 `styles/themes/`
+4. 同步更新 `components.md`、`ai-guide.md` 和相关示例

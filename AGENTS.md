@@ -54,6 +54,8 @@ components/          # Vue 组件（双层架构）
   themes/            # 主题层组件（视觉变体）
     showcase/        # StepFeatureShowcase、PlatformBadgeIcon、FailureCaseCard
     island/          # IslandCoverSlide、IslandClosingSlide、IslandHackathonClosingSlide、IslandCard、IslandButton、LeafDivider、IslandPhoneClock、IslandModal
+styles/              # 样式系统模块
+  themes/            # 主题级 CSS，如 animal-island.css
 design_system/       # 设计系统文档
 workflows/           # 幻灯片、脚本、音频、视频生成工作流
 slides.md            # 主入口，指向当前周的幻灯片
@@ -141,6 +143,8 @@ const props = withDefaults(defineProps<Props>(), {
 - **必须优先使用** CSS 变量（`var(--color-primary)` 等）
 - CSS 类名使用 kebab-case（`.gradient-heading`、`.two-column-layout`）
 - 优先 scoped 样式
+- `slides.md` 不写 `<style>`；当前内容目录 `weekly/_current/` 不放样式系统文件
+- 可复用结构优先抽成 `components/` 组件，纯 CSS 主题演示模式放入 `styles/themes/`
 
 核心色彩变量：
 

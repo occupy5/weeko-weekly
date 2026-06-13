@@ -25,7 +25,6 @@ withDefaults(defineProps<Props>(), {
 
       <div class="closing-board">
         <section class="closing-lead">
-          <span class="closing-kicker">Hackathon wrap-up</span>
           <h1 class="closing-title">{{ title }}</h1>
 
           <div class="summary-note">
@@ -35,7 +34,6 @@ withDefaults(defineProps<Props>(), {
 
         <section class="credits-panel">
           <div class="credits-heading">
-            <span>Open Source Thanks</span>
             <strong>感谢这些开源项目</strong>
           </div>
 
@@ -92,22 +90,20 @@ withDefaults(defineProps<Props>(), {
 .closing-shell {
   position: relative;
   z-index: 1;
-  width: min(86%, 920px);
+  width: min(84%, 900px);
   display: grid;
-  gap: 0.7rem;
+  gap: 0.85rem;
   color: #255f54;
 }
 
 .closing-ribbon {
   justify-self: center;
-  padding: 0.38rem 1.15rem;
+  padding: 0.34rem 1.05rem;
   color: #255f54;
-  background: rgba(230, 251, 238, 0.9);
-  border: 2px solid rgba(130, 213, 187, 0.52);
+  background: rgba(230, 251, 238, 0.74);
+  border: 1.5px solid rgba(130, 213, 187, 0.42);
   border-radius: 999px;
-  box-shadow:
-    0 8px 18px rgba(29, 116, 99, 0.14),
-    inset 0 -2px 0 rgba(130, 213, 187, 0.36);
+  box-shadow: 0 6px 14px rgba(29, 116, 99, 0.1);
   font-size: clamp(0.7rem, 1.15vw, 0.86rem);
   font-weight: 900;
   letter-spacing: 0.04em;
@@ -119,23 +115,11 @@ withDefaults(defineProps<Props>(), {
   grid-template-columns: 0.92fr 1.08fr;
   gap: 1.25rem;
   align-items: stretch;
-  padding: 1.05rem;
-  border-radius: 38px 34px 42px 32px / 34px 42px 32px 38px;
-  background:
-    linear-gradient(135deg, rgba(226, 248, 231, 0.95), rgba(247, 249, 217, 0.94));
-  border: 3px solid rgba(255, 255, 255, 0.72);
-  box-shadow:
-    0 18px 34px rgba(29, 116, 99, 0.16),
-    inset 0 -6px 0 rgba(130, 213, 187, 0.24);
-}
-
-.closing-board::before {
-  content: "";
-  position: absolute;
-  inset: 0.6rem;
-  border: 1.5px dashed rgba(29, 139, 117, 0.28);
-  border-radius: 30px;
-  pointer-events: none;
+  padding: 1.35rem 1.45rem;
+  border-radius: 34px 30px 38px 30px / 30px 38px 30px 34px;
+  background: rgba(239, 250, 227, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 16px 32px rgba(29, 116, 99, 0.14);
 }
 
 .closing-lead,
@@ -148,22 +132,10 @@ withDefaults(defineProps<Props>(), {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.9rem;
+  gap: 0.75rem;
   min-width: 0;
-  padding: 0.2rem 0.15rem 0.2rem 0.2rem;
+  padding: 0.15rem 0.2rem 0.15rem 0;
   text-align: left;
-}
-
-.closing-kicker {
-  width: fit-content;
-  padding: 0.26rem 0.68rem;
-  color: #127d6d;
-  background: rgba(186, 245, 224, 0.78);
-  border-radius: 999px;
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
 }
 
 .closing-title {
@@ -177,102 +149,78 @@ withDefaults(defineProps<Props>(), {
 }
 
 .summary-note {
-  display: grid;
-  gap: 0.45rem;
-  padding: 0.9rem 1rem 1rem;
-  border-radius: 24px 22px 26px 20px / 22px 26px 20px 24px;
-  background: rgba(255, 245, 199, 0.78);
-  box-shadow: inset 5px 0 0 #1c9a84;
-}
-
-.summary-note span {
-  color: #127d6d;
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
+  padding-left: 0.85rem;
+  border-left: 5px solid #1c9a84;
 }
 
 .summary-note p {
   margin: 0;
   color: #35584f;
-  font-size: clamp(0.84rem, 1.42vw, 1rem);
+  font-size: clamp(0.82rem, 1.32vw, 0.95rem);
   font-weight: 800;
-  line-height: 1.58;
+  line-height: 1.62;
 }
 
 .credits-panel {
   display: grid;
   align-content: center;
-  gap: 0.7rem;
+  gap: 0.8rem;
   min-width: 0;
-  padding: 0.2rem;
+  padding: 0.1rem 0;
 }
 
 .credits-heading {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
   color: #245f53;
 }
 
-.credits-heading span {
-  color: #127d6d;
-  font-size: 0.65rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
 .credits-heading strong {
-  font-size: 0.98rem;
+  color: #127d6d;
+  font-size: 0.78rem;
   font-weight: 950;
+  letter-spacing: 0.12em;
 }
 
 .credits-list {
   display: grid;
-  gap: 0.58rem;
+  gap: 0.42rem;
 }
 
 .credit-ticket {
   display: grid;
-  grid-template-columns: 3.2rem 1fr;
+  grid-template-columns: 2.5rem 1fr;
   align-items: center;
-  gap: 0.72rem;
-  min-height: 4.5rem;
-  padding: 0.74rem 0.86rem;
+  gap: 0.7rem;
+  min-height: 3.9rem;
+  padding: 0.5rem 0;
   color: #35584f;
   text-align: left;
   text-decoration: none;
-  border-radius: 22px 20px 24px 18px / 20px 24px 18px 22px;
-  background: rgba(255, 251, 226, 0.9);
-  border: 2px solid rgba(130, 213, 187, 0.38);
-  box-shadow:
-    0 8px 16px rgba(29, 116, 99, 0.1),
-    inset 0 -3px 0 rgba(130, 213, 187, 0.22);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
+  border-bottom: 1px solid rgba(29, 139, 117, 0.18);
+  transition: transform 180ms ease;
+}
+
+.credit-ticket:last-child {
+  border-bottom: 0;
 }
 
 .credit-ticket:hover {
   transform: translateY(-2px);
-  box-shadow:
-    0 12px 20px rgba(29, 116, 99, 0.14),
-    inset 0 -3px 0 rgba(130, 213, 187, 0.22);
 }
 
 .ticket-index {
   display: grid;
   place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  color: #f7f9d9;
-  background: #008b78;
+  width: 2.1rem;
+  height: 2.1rem;
+  color: #008b78;
+  background: rgba(186, 245, 224, 0.82);
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 950;
-  box-shadow: inset 0 -3px 0 rgba(0, 90, 76, 0.45);
 }
 
 .ticket-copy {
