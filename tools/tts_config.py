@@ -1,4 +1,4 @@
-DEFAULT_VOICE_ID = "auoHciLZJwKTwYUoRTYz"
+DEFAULT_VOICE_ID = "MNwNcuqILoUHnUG7B9kO"
 DEFAULT_VOICE_NAME = "Neil Chuang"
 
 DEFAULT_MODEL_ID = "eleven_multilingual_v2"
@@ -8,13 +8,13 @@ DEFAULT_OUTPUT_FORMAT = "mp3_44100_128"
 
 DEFAULT_VOICE_SETTINGS = {
     "stability": 1,
-    "similarity_boost": 0.3,
+    "similarity_boost": 0.6,
     "style": 0.8,
-    "speed": 1.2,
+    "speed": 1,
     "use_speaker_boost": True,
 }
 
-DEFAULT_SPEED = 1.2
+DEFAULT_SPEED = 1
 
 AUDIO_DIR_NAME = "audio"
 
